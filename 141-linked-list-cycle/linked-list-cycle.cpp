@@ -6,22 +6,24 @@
  *     ListNode(int x) : val(x), next(NULL) {}
  * };
  */
-class Solution {
+
+    class Solution {
 public:
     bool hasCycle(ListNode *head) {
-        set<ListNode*> s;
-        
-        ListNode* curr = head;
-        
-        while (curr != nullptr) {
-            if (s.find(curr) != s.end()) {
+
+        ListNode* slow = head;
+        ListNode* fast = head;
+
+        while(fast != nullptr && fast->next != nullptr) {
+
+            slow = slow->next;
+            fast = fast->next->next;
+
+            if(slow == fast) {
                 return true;
             }
-            
-            s.insert(curr);
-            curr = curr->next;
         }
-        
+
         return false;
     }
 };
