@@ -13,14 +13,14 @@ public:
             while(left < right && vowel.find(s[right]) == string::npos)
                 right--;
 
-            if(left < right) {
+            
                 char temp = s[left];
                 s[left] = s[right];
                 s[right] = temp;
 
                 left++;
                 right--;
-            }
+            
         }
 
         return s;
